@@ -1,13 +1,11 @@
 import { BrowserRouter } from "react-router-dom";
 import "../css/index.css";
-import Navbar from "../layouts/Navegacion";
-import Footer from "../layouts/Footer";
+import Login from "../pages/Login";
 
 function App() {
   return (
     <BrowserRouter>
-      <Navbar/>
-      <Footer/>
+      <Login />
     </BrowserRouter>
   );
 }
