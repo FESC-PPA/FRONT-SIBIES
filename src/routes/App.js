@@ -1,11 +1,13 @@
 import { BrowserRouter } from "react-router-dom";
 import "../css/index.css";
-import NavigationBar from "../layouts/Navegacion";
+import Navbar from "../layouts/Navegacion";
+import Footer from "../layouts/Footer";
 
 function App() {
   return (
     <BrowserRouter>
-      <NavigationBar/>
+      <Navbar/>
+      <Footer/>
     </BrowserRouter>
   );
 }
