@@ -1,8 +1,9 @@
 import React from "react";
 import logoFescBlanco from "../images/Logo-FESC-2021-Blanco.png";
 import logoSignOff from "../images/cerrar-sesion.png";
+import { NavLink } from "react-router-dom";
 
-const Navbar = () => {
+const Navegacion = () => {
   return (
     <nav className="bg-red-600 flex items-center justify-between p-4">
       <div className="flex items-center">
@@ -11,13 +12,13 @@ const Navbar = () => {
           alt="Logo blanco - FESC"
           className="w-24 mr-10"
         />
-        <a href="/" className="text-white mr-8">
+        <a as={NavLink} to={"/"} className="text-white mr-8">
           Inicio
         </a>
-        <a href="/reportes" className="text-white mr-8">
+        <a as={NavLink} to={"/reportes"} className="text-white mr-8">
           Genera Reportes
         </a>
-        <a href="/crear-estudiantes" className="text-white">
+        <a as={NavLink} to={"/crear-estudiantes"} className="text-white">
           Crear Estudiantes
         </a>
       </div>
@@ -28,4 +29,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Navegacion;

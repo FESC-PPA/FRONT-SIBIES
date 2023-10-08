@@ -1,8 +1,8 @@
 import logofescIcontecISO from "../images/logofescIcontecISO.png";
 
-const Footer = () => {
+const PiePagina = () => {
   return (
-    <footer className="bg-red-600 text-white">
+    <footer className="bg-red-600 text-white mt-8">
       <div className="flex justify-between p-4">
         <div className="w-1/6 pr-4">
           <div className="flex justify-center">
@@ -50,4 +50,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default PiePagina;
