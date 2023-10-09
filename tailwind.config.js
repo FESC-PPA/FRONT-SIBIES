@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundColor: {
-        'custom-bgColor': '#3C3C3B',
+        'custom-bgColor': '#F9FAFB',
         'custom-button-bgColor': '#CE2126',
       },
       textColor: {
