@@ -18,7 +18,6 @@ const DashBoard = () => {
         <TablaDashboard/>
       </div>
 
-      <PiePagina />
     </div>
   );
 };

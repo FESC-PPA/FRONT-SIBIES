@@ -1,6 +1,11 @@
 import LogoFESC from "../images/Logo-FESC.png";
+import { Link } from "react-router-dom";
 
 const IniciarSesion = () => {
+
+  
+
+  
   return (
     <div>
       <div className="flex justify-center">
@@ -23,18 +28,22 @@ const IniciarSesion = () => {
       </div>
 
       <div className="flex justify-center mt-10">
-        <button className="bg-custom-button-bgColor text-white px-4 py-2 rounded">
+        <Link
+          to="/dashboard"
+          className="bg-custom-button-bgColor text-white px-4 py-2 rounded"
+          
+        >
           Ingresar
-        </button>
+        </Link>
       </div>
 
       <div className="flex justify-center mt-10">
-        <a
-          href="/forgot-password"
+        <Link
+          to="/OlvideContraseña"
           className="text-gray-700 mt-2 block font-semibold border-b"
         >
           Olvidé mi contraseña
-        </a>
+        </Link>
       </div>
     </div>
   );
