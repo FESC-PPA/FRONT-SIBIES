@@ -4,7 +4,7 @@ const FiltroDashboard = () => {
   return (
     <div>
       <div className="flex justify-between mb-4">
-        <h1 className="text-2xl font-bold">Busqueda de Estudiantes</h1>
+        <h2 className="text-2xl font-bold">Busqueda de Estudiantes</h2>
         <button className="w-14">
           <img src={LupaBusqueda} alt="Buscar" />
         </button>

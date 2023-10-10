@@ -1,6 +1,5 @@
 import FiltroDashboard from "../components/FiltroDashboard";
-import Navegacion from "../layouts/Navegacion";
-import PiePagina from "../layouts/PiePagina";
+
 
 import TablaDashboard from "../components/TablaDashboard";
 

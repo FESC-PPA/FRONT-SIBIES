@@ -89,7 +89,7 @@ const TablaDashboard = () => {
                   </Link>
                 </div>
                 <div>
-                  <Link to="/eliminarEstudiante">
+                  <Link to="#">
                     <img
                       src={DeleteIcon}
                       alt="Eliminar"

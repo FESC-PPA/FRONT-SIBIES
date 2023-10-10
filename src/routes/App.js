@@ -10,7 +10,6 @@ import Error404 from "../pages/Error404";
 import GenerarReportes from "../pages/GenerarReportes";
 import CrearEstudiantes from "../pages/CrearEstudiantes";
 import EditarEstudiantes from "../pages/EditarEstudiantes";
-import EliminarEstudiantes from "../pages/EliminarEstudiantes";
 
 import Navegacion from "../layouts/Navegacion";
 import PiePagina from "../layouts/PiePagina";
@@ -33,7 +32,6 @@ function App() {
           {isLoggedIn && <Route path="/reportes" element={<GenerarReportes/>} />}
           {isLoggedIn && <Route path="/crearEstudiante" element={<CrearEstudiantes/>} />}
           {isLoggedIn && <Route path="/editarEstudiante" element={<EditarEstudiantes/>} />}
-          {isLoggedIn && <Route path="/eliminarEstudiante" element={<EliminarEstudiantes/>} />}
           <Route
             path="/OlvideContraseña"
             element={<OlvideMiContraseña />}
