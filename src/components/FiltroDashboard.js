@@ -1,4 +1,5 @@
-import LupaBusqueda from "../images/lupa.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 const FiltroDashboard = () => {
   return (
@@ -6,7 +7,11 @@ const FiltroDashboard = () => {
       <div className="flex justify-between mb-4">
         <h2 className="text-2xl font-bold">Busqueda de Estudiantes</h2>
         <button className="w-14">
-          <img src={LupaBusqueda} alt="Buscar" />
+          <FontAwesomeIcon
+            icon={faMagnifyingGlass}
+            size="2xl"
+            style={{ color: "#000000" }}
+          />
         </button>
       </div>
 

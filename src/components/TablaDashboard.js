@@ -1,6 +1,7 @@
-import DeleteIcon from "../images/eliminar.png";
-import EditIcon from "../images/lapices.png";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPenToSquare } from "@fortawesome/free-regular-svg-icons";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 const estudiantes = [
   {
@@ -81,22 +82,21 @@ const TablaDashboard = () => {
               <td className="border border-gray-300 px-4 py-2 flex justify-center">
                 <div className="mr-2">
                   <Link to="/editarEstudiante">
-                    <img
-                      src={EditIcon}
-                      alt="Editar"
-                      className="cursor-pointer w-9"
+                    <FontAwesomeIcon
+                      icon={faPenToSquare}
+                      size="2xl"
+                      style={{ color: "#000000" }}
                     />
                   </Link>
                 </div>
                 <div>
                   <Link to="#">
-                    <img
-                      src={DeleteIcon}
-                      alt="Eliminar"
-                      className="cursor-pointer w-9"
+                    <FontAwesomeIcon
+                      icon={faTrash}
+                      size="2xl"
+                      style={{ color: "#000000" }}
                     />
                   </Link>
-                  
                 </div>
               </td>
             </tr>
