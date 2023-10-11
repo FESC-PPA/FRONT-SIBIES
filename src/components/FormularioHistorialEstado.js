@@ -41,12 +41,9 @@ const FormularioHistorialEstado = () => {
         </div>
       </div>
       <div className="flex justify-center space-x-6 mt-10">
-        <Link
-          to=""
-          className="bg-custom-button-bgColor-accept text-white px-16 py-2 rounded"
-        >
+        <button className="bg-custom-button-bgColor-accept text-white px-16 py-2 rounded">
           Crear
-        </Link>
+        </button>
         <Link
           to="/dashboard"
           className="bg-custom-button-bgColor text-white px-16 py-2 rounded"

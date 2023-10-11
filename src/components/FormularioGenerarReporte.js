@@ -65,11 +65,17 @@ const FormularioGenerarReporte = () => {
           <select className="border rounded-lg py-1 px-2 w-1/4">
             <option value="">Selecciona una carrera</option>
             <option value="1">Diseño Gráfico</option>
-            <option value="2">Diseño y Administración de Negocios de la Moda</option>
+            <option value="2">
+              Diseño y Administración de Negocios de la Moda
+            </option>
             <option value="3">Administración Turística y Hotelera</option>
             <option value="4">Ingeniería de Software</option>
-            <option value="5">Administración de Negocios Internacionales</option>
-            <option value="6">Administración de Negocios Internacionales - Distancia</option>
+            <option value="5">
+              Administración de Negocios Internacionales
+            </option>
+            <option value="6">
+              Administración de Negocios Internacionales - Distancia
+            </option>
             <option value="7">Administración Financiera</option>
             <option value="8">Gestión Logística Empresarial</option>
           </select>
@@ -81,12 +87,9 @@ const FormularioGenerarReporte = () => {
       </div>
 
       <div className="flex justify-center space-x-6 mt-10">
-        <Link
-          to=""
-          className="bg-custom-button-bgColor-accept text-white px-16 py-2 rounded"
-        >
-          Descargar
-        </Link>
+        <button className="bg-custom-button-bgColor-accept text-white px-16 py-2 rounded">
+          Crear
+        </button>
         <Link
           to="/dashboard"
           className="bg-custom-button-bgColor text-white px-16 py-2 rounded"
