@@ -1,37 +1,16 @@
+import React from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare } from "@fortawesome/free-regular-svg-icons";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
-const estudiantes = [
-  {
-    id: 1,
-    identificacion: "12345",
-    nombre: "Juan",
-    apellidos: "Perez",
-    telefono: "123-456",
-    semestre: "1",
-    estado: "Activo",
-  },
-  {
-    id: 2,
-    identificacion: "12345",
-    nombre: "Juan",
-    apellidos: "Perez",
-    telefono: "123-456",
-    semestre: "1",
-    estado: "Activo",
-  },
-];
-
-const TablaDashboard = () => {
+const TablaDashboard = ({ estudiantes }) => {
   return (
     <div>
       <h2 className="text-xl font-semibold mb-4">Tabla de Estudiantes</h2>
       <table className="w-full border-collapse">
         <thead>
           <tr>
-            <th className="border border-gray-300 px-4 py-2 text-center">ID</th>
             <th className="border border-gray-300 px-4 py-2 text-center">
               Identificación
             </th>
@@ -45,7 +24,7 @@ const TablaDashboard = () => {
               Teléfono
             </th>
             <th className="border border-gray-300 px-4 py-2 text-center">
-              Semestre
+              Email
             </th>
             <th className="border border-gray-300 px-4 py-2 text-center">
               Estado
@@ -57,34 +36,31 @@ const TablaDashboard = () => {
         </thead>
         <tbody>
           {estudiantes.map((estudiante) => (
-            <tr key={estudiante.id}>
+            <tr key={estudiante.identificationCard}>
               <td className="border border-gray-300 px-4 py-2 text-center">
-                {estudiante.id}
+                {estudiante.identificationCard}
               </td>
               <td className="border border-gray-300 px-4 py-2 text-center">
-                {estudiante.identificacion}
+                {estudiante.name}
               </td>
               <td className="border border-gray-300 px-4 py-2 text-center">
-                {estudiante.nombre}
+                {estudiante.lastName}
               </td>
               <td className="border border-gray-300 px-4 py-2 text-center">
-                {estudiante.apellidos}
+                {estudiante.phone}
               </td>
               <td className="border border-gray-300 px-4 py-2 text-center">
-                {estudiante.telefono}
+                {estudiante.email}
               </td>
               <td className="border border-gray-300 px-4 py-2 text-center">
-                {estudiante.semestre}
-              </td>
-              <td className="border border-gray-300 px-4 py-2 text-center">
-                {estudiante.estado}
+                {estudiante.HistoryStatus.status_id.status}
               </td>
               <td className="border border-gray-300 px-4 py-2 flex justify-center">
                 <div className="mr-2">
                   <Link to="/editarEstudiante">
                     <FontAwesomeIcon
                       icon={faPenToSquare}
-                      size="2xl"
+                      size="2x"
                       style={{ color: "#000000" }}
                     />
                   </Link>
@@ -93,7 +69,7 @@ const TablaDashboard = () => {
                   <Link to="#">
                     <FontAwesomeIcon
                       icon={faTrash}
-                      size="2xl"
+                      size="2x"
                       style={{ color: "#000000" }}
                     />
                   </Link>
