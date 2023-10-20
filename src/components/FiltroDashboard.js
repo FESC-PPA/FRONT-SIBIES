@@ -2,17 +2,23 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 
-const FiltroDashboard = ({ estudiantes, setFilteredEstudiantes }) => {
+const FiltroDashboard = ({
+  estudiantes,
+  setFilteredEstudiantes,
+  buscarEstudiantes,
+}) => {
   const [filtro, setFiltro] = useState({
     identificationCard: "",
     email: "",
     name: "",
     lastName: "",
     period: "",
-    career: "", // En el filtro, carrera se almacena como el nombre de la carrera
+    career: "",
     status: "",
     semester: "",
   });
+
+  
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -24,35 +30,38 @@ const FiltroDashboard = ({ estudiantes, setFilteredEstudiantes }) => {
 
   const handleSearch = () => {
     const filtered = estudiantes.filter((estudiante) => {
-      return (
-        Object.values(filtro).some((filtroValue) =>
-          estudianteMatchesFilter(estudiante, filtroValue)
-        ) &&
-        // Verifica si la carrera coincide
-        (filtro.career === "" ||
-          estudiante.HistoryStatus?.career_id.career === filtro.career)
-      );
+      return estudianteMatchesFilter(estudiante, filtro);
     });
 
     setFilteredEstudiantes(filtered);
+    buscarEstudiantes();
   };
 
-  const estudianteMatchesFilter = (estudiante, filtroValue) => {
-    if (!filtroValue) {
-      return false;
+  const estudianteMatchesFilter = (estudiante, filtro) => {
+    if (Object.values(filtro).every((filtroValue) => filtroValue === "")) {
+      
+      return true;
     }
 
     return (
-      estudiante.identificationCard?.includes(filtroValue) ||
-      estudiante.email?.includes(filtroValue) ||
-      estudiante.name?.includes(filtroValue) ||
-      estudiante.lastName?.includes(filtroValue) ||
-      (estudiante.HistoryStatus &&
-        estudiante.HistoryStatus.period?.includes(filtroValue)) ||
-      (estudiante.HistoryStatus &&
-        estudiante.HistoryStatus.status_id?.status?.includes(filtroValue)) ||
-      (estudiante.HistoryStatus &&
-        estudiante.HistoryStatus.semester?.includes(filtroValue))
+      (filtro.identificationCard === "" ||
+        estudiante.identificationCard?.includes(filtro.identificationCard)) &&
+      (filtro.email === "" || estudiante.email?.includes(filtro.email)) &&
+      (filtro.name === "" || estudiante.name?.includes(filtro.name)) &&
+      (filtro.lastName === "" ||
+        estudiante.lastName?.includes(filtro.lastName)) &&
+      (!filtro.period ||
+        (estudiante.HistoryStatus &&
+          estudiante.HistoryStatus.period === filtro.period)) &&
+      (!filtro.career ||
+        (estudiante.HistoryStatus &&
+          estudiante.HistoryStatus.career_id.career === filtro.career)) &&
+      (!filtro.status ||
+        (estudiante.HistoryStatus &&
+          estudiante.HistoryStatus.status_id.status === filtro.status)) &&
+      (!filtro.semester ||
+        (estudiante.HistoryStatus &&
+          estudiante.HistoryStatus.semester === filtro.semester))
     );
   };
 
