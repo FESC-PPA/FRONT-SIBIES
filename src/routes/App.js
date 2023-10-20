@@ -13,12 +13,12 @@ import PiePagina from "../layouts/PiePagina";
 import OlvideMiContraseña from "../pages/OlvideMiContraseña";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
     <BrowserRouter>
       <div className="App">
-        {isLoggedIn && <Navegacion />}
+        {isLoggedIn && <Navegacion setIsLoggedIn={setIsLoggedIn} />}
         <Routes>
           <Route path="/" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
           {isLoggedIn && <Route path="/dashboard" element={<DashBoard />} />}

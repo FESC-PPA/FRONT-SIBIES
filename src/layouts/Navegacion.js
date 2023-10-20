@@ -3,9 +3,16 @@ import logoFescBlanco from "../images/Logo-FESC-2021-Blanco.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-const Navegacion = () => {
+const Navegacion = ({setIsLoggedIn}) => {
+  const navigate = useNavigate(); // Obtiene la función de navegación
+
+  const handleLogout = () => {
+    // Esta función manejará el cierre de sesión
+    setIsLoggedIn(false); // Establece isLoggedIn en false
+    navigate("/"); // Redirige al usuario a la ruta principal
+  };
   return (
     <nav className="bg-red-600 flex items-center justify-between p-4">
       <div className="flex items-center space-x-10">
@@ -24,9 +31,15 @@ const Navegacion = () => {
           Crear Estudiante
         </Link>
       </div>
-      <Link  to="/">
-        <div>
-        <FontAwesomeIcon className="mr-6" icon={faArrowRightFromBracket} size="2x" rotation={180} style={{color: "#ffffff",}} />
+      <Link to="/">
+        <div onClick={handleLogout}>
+          <FontAwesomeIcon
+            className="mr-6"
+            icon={faArrowRightFromBracket}
+            size="2x"
+            rotation={180}
+            style={{ color: "#ffffff" }}
+          />
         </div>
       </Link>
     </nav>
