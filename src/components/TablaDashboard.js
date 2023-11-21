@@ -5,6 +5,7 @@ import { faPenToSquare } from "@fortawesome/free-regular-svg-icons";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 const TablaDashboard = ({ estudiantes }) => {
+  console.log(estudiantes)
   return (
     <div>
       <h2 className="text-xl font-semibold mb-4">Tabla de Estudiantes</h2>
@@ -38,7 +39,7 @@ const TablaDashboard = ({ estudiantes }) => {
           {estudiantes.map((estudiante) => (
             <tr key={estudiante.identificationCard}>
               <td className="border border-gray-300 px-4 py-2 text-center">
-                {estudiante.identificationCard}
+                {estudiante.identicationCard}
               </td>
               <td className="border border-gray-300 px-4 py-2 text-center">
                 {estudiante.name}
@@ -53,7 +54,7 @@ const TablaDashboard = ({ estudiantes }) => {
                 {estudiante.email}
               </td>
               <td className="border border-gray-300 px-4 py-2 text-center">
-                {estudiante.HistoryStatus.status_id.status}
+                Matriculado
               </td>
               <td className="border border-gray-300 px-4 py-2 flex justify-center">
                 <div className="mr-2">

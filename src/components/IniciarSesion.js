@@ -1,12 +1,12 @@
 import LogoFESC from "../images/Logo-FESC.png";
 import { Link, useNavigate } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import { INICIARSESION_POST_ENDPOINT } from "../connections/helpers/endpoinst";
 
 const IniciarSesion = ({ setIsLoggedIn }) => {
   const [credenciales, setCredenciales] = useState({
-    username: "",
+    document: "",
     password: "",
   });
   const [error, setError] = useState("");
@@ -17,17 +17,63 @@ const IniciarSesion = ({ setIsLoggedIn }) => {
   };
 
   const navigate = useNavigate();
+  const [tokenTimer, setTokenTimer] = useState(null);
 
-  const handleSubmit = (e) => {
+  const logoutAndRedirect = () => {
+    localStorage.removeItem("token");
+    setIsLoggedIn(false);
+    navigate("/");
+  };
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      const currentTime = Date.now();
+      const tokenExpTime = localStorage.getItem("tokenExpTime");
+
+      if (tokenExpTime && currentTime > tokenExpTime) {
+        logoutAndRedirect();
+      } else {
+        const timeRemaining = tokenExpTime - currentTime;
+        setTokenTimer(
+          setTimeout(() => {
+            logoutAndRedirect();
+          }, timeRemaining)
+        );
+      }
+    }
+  }, [setIsLoggedIn]);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (
-      credenciales.username === "1091966481" &&
-      credenciales.password === "1091966481"
-    ) {
-      setIsLoggedIn(true);
-      navigate("/dashboard");
-    } else {
-      setError("Credenciales incorrectas. Inténtalo de nuevo.");
+
+    if (!credenciales.document || !credenciales.password) {
+      setError("Todos los campos son obligatorios.");
+      return;
+    }
+
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(credenciales),
+    };
+
+    try {
+      const response = await fetch(INICIARSESION_POST_ENDPOINT, requestOptions);
+      if (response.ok) {
+        const data = await response.json();
+        localStorage.setItem("token", data.data.accessToken);
+        const tokenExpTime = Date.now() + 300000; // 5 minutos en milisegundos
+        localStorage.setItem("tokenExpTime", tokenExpTime);
+        setIsLoggedIn(true);
+        setTokenTimer(setTimeout(() => logoutAndRedirect(), 300000)); // Inicia el temporizador de 5 minutos
+        navigate("/dashboard");
+      } else {
+        setError("Credenciales incorrectas. Inténtalo de nuevo.");
+      }
+    } catch (error) {
+      console.error("Error al realizar la solicitud:", error);
+      setError("Error al iniciar sesión. Inténtalo de nuevo.");
     }
   };
 
@@ -43,8 +89,8 @@ const IniciarSesion = ({ setIsLoggedIn }) => {
           </label>
           <input
             type="text"
-            id="username"
-            name="username"
+            id="document"
+            name="document"
             className="w-full px-4 py-2 rounded border border-gray-300"
             onChange={handleInputChange}
           />

@@ -1,6 +1,6 @@
-const API_URL="http://127.0.0.1:5000"
+const API_URL="http://localhost:8080"
 
-export const INICIARSESION_POST_ENDPOINT= API_URL+"/auth/login"
+export const INICIARSESION_POST_ENDPOINT= API_URL+"/auths/login"
 
 export const verEstudiantes_GET_ENDPOINT= API_URL+"/users"
-export const crearEstudiantes_POST_ENDPOINT= API_URL+"/Createusers"
+export const crearEstudiantes_POST_ENDPOINT= API_URL+"/users"

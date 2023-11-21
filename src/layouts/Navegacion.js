@@ -6,12 +6,11 @@ import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 import { Link, useNavigate } from "react-router-dom";
 
 const Navegacion = ({setIsLoggedIn}) => {
-  const navigate = useNavigate(); // Obtiene la función de navegación
+  const navigate = useNavigate(); 
 
   const handleLogout = () => {
-    // Esta función manejará el cierre de sesión
-    setIsLoggedIn(false); // Establece isLoggedIn en false
-    navigate("/"); // Redirige al usuario a la ruta principal
+    setIsLoggedIn(false); 
+    navigate("/"); 
   };
   return (
     <nav className="bg-red-600 flex items-center justify-between p-4">

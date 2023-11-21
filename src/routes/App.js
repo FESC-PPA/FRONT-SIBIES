@@ -31,7 +31,7 @@ function App() {
           {isLoggedIn && (
             <Route path="/editarEstudiante" element={<EditarEstudiantes />} />
           )}
-          <Route path="/" element={<OlvideMiContraseña />} />
+          <Route path="/OlvideContraseña" element={<OlvideMiContraseña />} />
         </Routes>
         {isLoggedIn && <PiePagina />}
       </div>

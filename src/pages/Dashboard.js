@@ -13,25 +13,32 @@ const DashBoard = () => {
   const [buscando, setBuscando] = useState(false);
 
   const buscarEstudiantes = () => {
-    setBuscando(true); 
+    const token = localStorage.getItem("token");
+
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    setBuscando(true);
     axios
-      .get(verEstudiantes_GET_ENDPOINT)
+      .get(verEstudiantes_GET_ENDPOINT, config)
       .then((respuesta) => {
         setEstudiantes(respuesta.data.data);
-        setBuscando(false); 
+        setBuscando(false);
       })
       .catch((e) => {
         console.error(e);
-        setBuscando(false); 
+        setBuscando(false);
       });
   };
 
   useEffect(() => {
     if (!buscando) {
-      return; 
+      return;
     }
 
-    buscarEstudiantes(); 
+    buscarEstudiantes();
   }, [buscando]);
 
   return (
