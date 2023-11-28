@@ -23,9 +23,9 @@ const Navegacion = ({setIsLoggedIn}) => {
         <Link to="/dashboard" className="text-white ">
           Inicio
         </Link>
-        <Link to="/reportes" className="text-white">
+        {/* <Link to="/reportes" className="text-white">
           Generar reporte
-        </Link>
+        </Link> */}
         <Link to="/crearEstudiante" className="text-white">
           Crear Estudiante
         </Link>

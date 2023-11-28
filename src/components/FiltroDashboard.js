@@ -45,7 +45,7 @@ const FiltroDashboard = ({
 
     return (
       (filtro.identificationCard === "" ||
-        estudiante.identificationCard?.includes(filtro.identificationCard)) &&
+        estudiante.identicationCard?.includes(filtro.identificationCard)) &&
       (filtro.email === "" || estudiante.email?.includes(filtro.email)) &&
       (filtro.name === "" || estudiante.name?.includes(filtro.name)) &&
       (filtro.lastName === "" ||

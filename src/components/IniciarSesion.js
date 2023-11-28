@@ -119,14 +119,14 @@ const IniciarSesion = ({ setIsLoggedIn }) => {
         </div>
       </form>
 
-      <div className="flex justify-center mt-10">
+      {/* <div className="flex justify-center mt-10">
         <Link
           to="/OlvideContraseña"
           className="text-gray-700 mt-2 block font-semibold border-b"
         >
           Olvidé mi contraseña
         </Link>
-      </div>
+      </div> */}
     </div>
   );
 };
